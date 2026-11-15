@@ -99,7 +99,7 @@ region = Rect2(704, 0, 32, 32)
 atlas = ExtResource("1_up4cr")
 region = Rect2(736, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_laupf"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_t7bod"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -179,17 +179,18 @@ animations = [{
 "speed": 15.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_laupf"]
-radius = 17.888544
+[sub_resource type="CircleShape2D" id="CircleShape2D_t7bod"]
+radius = 19.646883
 
-[node name="key" type="Area2D" unique_id=1442392273]
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1145060527]
 script = ExtResource("1_p0yg6")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=2050341168]
-sprite_frames = SubResource("SpriteFrames_laupf")
-autoplay = "default"
-frame = 13
-frame_progress = 0.38156554
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2108832011]
+sprite_frames = SubResource("SpriteFrames_t7bod")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=35578976]
-shape = SubResource("CircleShape2D_laupf")
+[node name="Area2D" type="Area2D" parent="." unique_id=867734936]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1340312160]
+shape = SubResource("CircleShape2D_t7bod")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -2,7 +2,7 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -500.0
 
 # Gravity Burst settings
 const DASH_SPEED = 800.0

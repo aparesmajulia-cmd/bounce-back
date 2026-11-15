@@ -4,7 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://b2ja47tx45i0d" path="res://purple brick tileset.PNG" id="2_0hol4"]
 [ext_resource type="Texture2D" uid="uid://buwachmv5yoh5" path="res://48aba6be6e62353524ebaf141b61e07d.png" id="3_q6r6c"]
 [ext_resource type="PackedScene" uid="uid://c5wvk7akbrjcy" path="res://killzone.tscn" id="4_0hol4"]
+[ext_resource type="Script" uid="uid://bxnl8g5i34d02" path="res://chest.gd" id="5_kdubu"]
 [ext_resource type="PackedScene" uid="uid://bwq11hgd7gqpp" path="res://key.tscn" id="5_q6r6c"]
+[ext_resource type="PackedScene" uid="uid://c3lnyslfvmjey" path="res://next_level.tscn" id="7_d21ai"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kdubu"]
 texture = ExtResource("2_0hol4")
@@ -238,7 +240,7 @@ size = Vector2(129, 17)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_laupf"]
 
-[node name="Node2D" type="Node2D" unique_id=158290884]
+[node name="level 1" type="Node2D" unique_id=158290884]
 
 [node name="character" parent="." unique_id=1025862414 instance=ExtResource("1_epypp")]
 
@@ -272,7 +274,20 @@ collision_mask = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=1126018219]
 shape = SubResource("WorldBoundaryShape2D_laupf")
 
-[node name="key" parent="." unique_id=1442392273 instance=ExtResource("5_q6r6c")]
-
 [node name="key2" parent="." unique_id=697413167 instance=ExtResource("5_q6r6c")]
 position = Vector2(611, -378)
+
+[node name="chest" type="StaticBody2D" parent="." unique_id=1212919564]
+script = ExtResource("5_kdubu")
+
+[node name="chest zone" type="Area2D" parent="chest" unique_id=454564102]
+
+[node name="opened" type="Sprite2D" parent="chest" unique_id=2066039861]
+
+[node name="closed" type="Sprite2D" parent="chest" unique_id=675137281]
+
+[node name="next level" parent="." unique_id=1521125558 instance=ExtResource("7_d21ai")]
+
+[connection signal="chest_opened" from="key2" to="chest" method="_on_key_2_chest_opened"]
+[connection signal="body_entered" from="chest/chest zone" to="key2" method="_on_chest_zone_body_entered"]
+[connection signal="body_exited" from="chest/chest zone" to="key2" method="_on_chest_zone_body_exited"]

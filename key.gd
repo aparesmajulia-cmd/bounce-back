@@ -1,10 +1,27 @@
-extends Area2D
+extends StaticBody2D
 
-func _ready():
-	pass # Replace with function body.
-	
+signal chest_opened
+
+var keytaken = false
+var in_chest_zone = false
 
 
-# Canlled every frame. 'delta' is the elapsed timesince the previous f
+
+func _on_area_2d_body_entered(body: PhysicsBody2D):
+	if keytaken == false:
+		keytaken = true
+		$AnimatedSprite2D.queue_free() 
 func _process(delta):
-	pass
+	if keytaken == true:
+		if in_chest_zone == true:
+			if Input.is_action_just_pressed("ui_accept"):
+				print("chest_opened")
+				emit_signal("chest_opened")
+
+func _on_chest_zone_body_entered(body: PhysicsBody2D):
+	in_chest_zone = true
+	print(in_chest_zone)
+
+func _on_cage_body_exited(body):
+	in_chest_zone = false
+	print(in_chest_zone)
