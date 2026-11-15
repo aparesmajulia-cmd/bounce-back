@@ -103,14 +103,15 @@ region_rect = Rect2(70.393005, 21.135536, 8.41185, 51.873093)
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1521831868]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_laupf")
-animation = &"run"
+animation = &"forward"
+autoplay = "forward"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1071137649]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_laupf")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=226615684]
-limit_bottom = 141
+limit_bottom = 364
 limit_smoothed = true
 
 [node name="Hook" type="Line2D" parent="." unique_id=1477295927]

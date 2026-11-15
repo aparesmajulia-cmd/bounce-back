@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ni1pn5fc51q7"]
+
+[ext_resource type="Texture2D" uid="uid://c4kxe2nitddyn" path="res://download.jpg" id="1_0fbet"]
+
+[node name="you won" type="Control" unique_id=1928801409]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1852963594]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=178125679]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1637006427]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=2033892433]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1812880858]
+texture = ExtResource("1_0fbet")
+region_rect = Rect2(0, 0, 1545, 1982.2697)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=410357344]
+zoom = Vector2(0.8, 0.8)

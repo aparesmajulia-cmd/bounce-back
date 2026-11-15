@@ -27,9 +27,13 @@ var hook_length = 250.0
 func _physics_process(delta: float) -> void:
 	# Animations
 	if (velocity.x >1 || velocity.x < -1):
-		sprite_2d.animation = "running"
+		sprite_2d.animation = "run"
+		sprite_2d.play("run")
+	elif velocity.x == 0:
+		sprite_2d.pause()
 	else:
 		sprite_2d.animation = "forward"
+		sprite_2d.play("forward")
 		
 	# Add gravity
 	if not is_on_floor() and not is_dashing:
@@ -94,6 +98,7 @@ func _physics_process(delta: float) -> void:
 	
 	var isleft = velocity.x < 0
 	sprite_2d.flip_h = isleft
+	
 
 
 func hook_jump() -> void:

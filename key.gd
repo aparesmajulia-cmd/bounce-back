@@ -21,6 +21,8 @@ func _process(delta):
 func _on_chest_zone_body_entered(body: PhysicsBody2D):
 	in_chest_zone = true
 	print(in_chest_zone)
+	if keytaken:
+		get_tree().change_scene_to_file("res://level_2.tscn")
 
 func _on_cage_body_exited(body):
 	in_chest_zone = false

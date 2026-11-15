@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dbfvxhhx0083e"]
+
+[ext_resource type="Texture2D" uid="uid://c14edareckrry" path="res://Black Cat - Character Sheet.png" id="1_yuqhx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gm2va"]
+atlas = ExtResource("1_yuqhx")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvdx2"]
+atlas = ExtResource("1_yuqhx")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4decy"]
+atlas = ExtResource("1_yuqhx")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_laupf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gm2va")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvdx2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4decy")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_laupf"]
+size = Vector2(30, 42)
+
+[node name="civillian" type="AnimatedSprite2D" unique_id=1523370119]
+sprite_frames = SubResource("SpriteFrames_laupf")
+autoplay = "default"
+frame_progress = 0.3921639
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=758720407]
+position = Vector2(-1, 2)
+shape = SubResource("RectangleShape2D_laupf")
